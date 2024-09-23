@@ -1,56 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
-  
-     
-      
-  <!DOCTYPE html>
-<html lang="en">
-<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsApp Popup Button</title>
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  border-right:1px solid #bbb;
+}
+
+li:last-child {
+  border-right: none;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover:not(.active) {
+  background-color: #111;
+}
+
+.active {
+  background-color: #04AA6D;
+}
+</style>
 </head>
 <body>
-    <div class="whatsapp-button">
-        <a href="https://wa.me/1234567890" target="_blank">
-            <img src="data:image/png;base64,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" alt="WhatsApp" />
-        </a>
-    </div>
-</body>
-</html>
-<style>
 
-.whatsapp-button {
-    position: fixed;
-    bottom: 20px; /* Distance from the bottom */
-    right: 20px; /* Distance from the right */
-    z-index: 1000; /* Make sure it's on top */
-}
-
-.whatsapp-button img {
-    width: 60px; /* Adjust size as needed */
-    height: 60px; /* Adjust size as needed */
-    border-radius: 50%; /* Optional: round the button */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: shadow */
-    transition: transform 0.2s; /* Animation on hover */
-}
-
-.whatsapp-button img:hover {
-    transform: scale(1.1); /* Scale up on hover */
-}
+<ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#news">News</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li style="float:right"><a href="#about">About</a></li>
+</ul>
 
 
-</style>
+<br>
+
+<picture>
+    <source 
+       media="(orientation: landscape)"
+       srcset="1.jpg">
+    <source 
+       media="(orientation: portrait)"
+       srcset="1.jpg">
+       
+  <img src="1.jpg" width="100%" height="auto">
+ </picture>
 
 
-  <img src="1.jpg" alt="Girl in a jacket" width="1000" height="600">
-  <style>
+
+
+ <style>
     a:link, a:visited {
       background-color: #ffffff;
-      color: rgb(0, 157, 248);
+      color: rgb(0, 190, 248);
       padding: 14px 25px;
       text-align: center;
       text-decoration: none;
@@ -63,11 +82,12 @@
     </style>
     </head>
     <body>
-    
-    
+      
+<p style="color:rgb(76, 183, 255); font-size:30px;></p>
+<p style="color:blue;">Scratch It And Get A Screenshot And <br>Send Us On The Whatsapp To Get Prize Bond</b><br> Whatsapp Number +917879042621</p>
     <a href="https://wa.link/p5bllg" target="_blank">𝑾𝒉𝒂𝒕𝒔𝑨𝒑 +917879042621</a>
      <title>emirates-draw-scratch-and-win</title>
-
+     <p class="scratch-card-text">🎁 Scratch for a surprise!</p>
     <div class="scratch-card">
       <div class="scratch-card-cover-container">
         <canvas class="scratch-card-canvas" width="520" height="520"></canvas>
@@ -84,6 +104,13 @@
            ,  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiHGK0_-yBDAOkZx6OKk7OJICnWOWFHwblSDZFRS3NTzyo6_o6doffsyqj051tG1nue7I&usqp=CAU"
            , "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRan_u8d35Iu4fVype5V0X6QLiZLGk4b3wOuQ&s"
            , "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQwepCXRynB78pCh-c3ls-EpPFT8EuaPSJYbQ&s"
+           ,  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSkr1HBdwqdaoaQBypEbHYp0mQ4aY-VCOiT7Q&s"
+           , "download (4).png"
+           , "download (5).png"
+           ,  "download (6).png"
+           , "download (7).png"
+           , "2.jpg"
+           , "download (8).png"
         ];
         function getImageTag() {
           var img = '<img src=\"';
@@ -121,7 +148,7 @@
     
 
 
-    <p class="scratch-card-text">🎁 Scratch for a surprise!</p>
+    
     
     <svg width="0" height="0">
       <filter id="remove-black" color-interpolation-filters="sRGB">
@@ -374,7 +401,7 @@ const checkBlackFillPercentage = () => {
          y: (scratchCardText.getBoundingClientRect().bottom + 60) / window.innerHeight,
       },
     });
-    scratchCardText.textContent = '🎉 You got a $50 Apple gift card!';
+    scratchCardText.textContent = '🎉 !';
     scratchCardImage.classList.add('animate');
     scratchCardCoverContainer.addEventListener('transitionend', () => {
       scratchCardCoverContainer.classList.add('hidden');
@@ -445,257 +472,7 @@ const plot = (e) => {
 };
   </script>
 
-<br><br>
-<br>
-
-
-
-
-
-
-
-    </section>
-
-<div>
-    <div id="promo" class="scratchpad"></div>
-
-
-    <script src="https://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
-    <script type="text/javascript" src="http://jennamolby.com/scratch-and-win/js/wScratchPad.min.js"></script>
-
-<style>
-
-.scratchpad{
-  width: 450px;
-  height: 445px;
-  border: solid 10px #FFFFFF;
-  margin:0 auto;
-}
-body {
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background:#ddd;
-}
-@media (max-width: 500px) {
-  .scratchpad {
-  width: 90%;
-  height: auto !important;
-
-  } 
-}
-  </style>
-
-  <script>
-$('#promo').wScratchPad({
-    size        : 70,       
-    bg:  '2.jpg',
-    realtime    : true, 
-    fg: 'http://jennamolby.com/scratch-and-win/images/overlay.png',
-    'cursor': 'url("http://jennamolby.com/scratch-and-win/images/coin1.png") 5 5, default',
- });
-
-</script>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
- 
-
-           <!--
-https://github.com/andreruffert/scratchie.js
--->
-
-<div class="container" id="js-container">
-  <canvas class="canvas" id="js-canvas" width="300" height="300"></canvas>
-  <form class="form" style="visibility: hidden;">
-  <center>
-    <script src="https://randojs.com/1.0.0.js"></script>
-        <script>
-            function showRandomNumber(){
-                document.getElementById("myNumber").innerHTML = rando(1500, 25000);
-            }
-        </script>
-        <style>
-            #myNumber{
-                font-size:100px;
-                text-align:center;
-                margin:50px auto;
-                font-family:Arial, sans-serif;
-            }
-        </style>
-    </head>
-    <body onload="showRandomNumber();">
-      <p><b>Dirham</b>  </p>
-        <div id="myNumber"></div>
-    <h2>You Won</h2>
-    
-    </center>
-  </form>  
-</div>
-
-<style>
-
-body {
-  padding: 20px 0;
-}
-
-.container {
-  border: 3px solid yellow;
-  position: relative;
-  width: 300px;
-  height: 300px;
-  margin: 0 auto;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none; 
-  -o-user-select: none;
-  user-select: none;
-}
-
-.canvas {
-  position: absolute;
-  top: 0;
-}
-
-.form {
-  padding: 20px;
-}
-
-</style>
-
-<script>
-(function() {
-  
-  'use strict';
-  
-  var isDrawing, lastPoint;
-  var container    = document.getElementById('js-container'),
-      canvas       = document.getElementById('js-canvas'),
-      canvasWidth  = canvas.width,
-      canvasHeight = canvas.height,
-      ctx          = canvas.getContext('2d'),
-      image        = new Image(),
-      brush        = new Image();
-      
-  // base64 Workaround because Same-Origin-Policy
-  image.src = 'https://t3.ftcdn.net/jpg/02/11/10/76/360_F_211107621_DmVEOi9iw2qU5VL1yXZt8GN2C8HB25S6.jpg';
-  image.onload = function() {
-    ctx.drawImage(image, 0, 0);
-    // Show the form when Image is loaded.
-    document.querySelectorAll('.form')[0].style.visibility = 'visible';
-  };
-  brush.src = 'data:image/png;base64,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';
-  
-  canvas.addEventListener('mousedown', handleMouseDown, false);
-  canvas.addEventListener('touchstart', handleMouseDown, false);
-  canvas.addEventListener('mousemove', handleMouseMove, false);
-  canvas.addEventListener('touchmove', handleMouseMove, false);
-  canvas.addEventListener('mouseup', handleMouseUp, false);
-  canvas.addEventListener('touchend', handleMouseUp, false);
-  
-  function distanceBetween(point1, point2) {
-    return Math.sqrt(Math.pow(point2.x - point1.x, 2) + Math.pow(point2.y - point1.y, 2));
-  }
-  
-  function angleBetween(point1, point2) {
-    return Math.atan2( point2.x - point1.x, point2.y - point1.y );
-  }
-  
-  // Only test every `stride` pixel. `stride`x faster,
-  // but might lead to inaccuracy
-  function getFilledInPixels(stride) {
-    if (!stride || stride < 1) { stride = 1; }
-    
-    var pixels   = ctx.getImageData(0, 0, canvasWidth, canvasHeight),
-        pdata    = pixels.data,
-        l        = pdata.length,
-        total    = (l / stride),
-        count    = 0;
-    
-    // Iterate over all pixels
-    for(var i = count = 0; i < l; i += stride) {
-      if (parseInt(pdata[i]) === 0) {
-        count++;
-      }
-    }
-    
-    return Math.round((count / total) * 100);
-  }
-  
-  function getMouse(e, canvas) {
-    var offsetX = 0, offsetY = 0, mx, my;
-
-    if (canvas.offsetParent !== undefined) {
-      do {
-        offsetX += canvas.offsetLeft;
-        offsetY += canvas.offsetTop;
-      } while ((canvas = canvas.offsetParent));
-    }
-
-    mx = (e.pageX || e.touches[0].clientX) - offsetX;
-    my = (e.pageY || e.touches[0].clientY) - offsetY;
-
-    return {x: mx, y: my};
-  }
-  
-  function handlePercentage(filledInPixels) {
-    filledInPixels = filledInPixels || 0;
-    console.log(filledInPixels + '%');
-    if (filledInPixels > 50) {
-      canvas.parentNode.removeChild(canvas);
-    }
-  }
-  
-  function handleMouseDown(e) {
-    isDrawing = true;
-    lastPoint = getMouse(e, canvas);
-  }
-
-  function handleMouseMove(e) {
-    if (!isDrawing) { return; }
-    
-    e.preventDefault();
-
-    var currentPoint = getMouse(e, canvas),
-        dist = distanceBetween(lastPoint, currentPoint),
-        angle = angleBetween(lastPoint, currentPoint),
-        x, y;
-    
-    for (var i = 0; i < dist; i++) {
-      x = lastPoint.x + (Math.sin(angle) * i) - 25;
-      y = lastPoint.y + (Math.cos(angle) * i) - 25;
-      ctx.globalCompositeOperation = 'destination-out';
-      ctx.drawImage(brush, x, y);
-    }
-    
-    lastPoint = currentPoint;
-    handlePercentage(getFilledInPixels(32));
-  }
-
-  function handleMouseUp(e) {
-    isDrawing = false;
-  }
-  
-})();
-</script>                 
-
-    
-
-
-
-
-
-
-
-
-
 </body>
 </html>
+
+
